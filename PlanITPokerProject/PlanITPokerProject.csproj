@@ -56,7 +56,9 @@
     <Compile Include="Forgetten Password.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forgetten Password-No Email.cs" />
-    <Compile Include="ForgettenPassword -Non-ExistentEmail.cs" />
+    <Compile Include="ForgettenPassword-Non-ExistentEmail.cs" />
+    <Compile Include="GetSocial.cs" />
+    <Compile Include="Login.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
