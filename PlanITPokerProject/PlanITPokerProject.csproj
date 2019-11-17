@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forgetten Password.cs" />
+    <Compile Include="HomePage.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="PlanITPokerLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Login-Case Sensitive Password.cs" />
     <Compile Include="Login-Wrong Email.cs" />
     <Compile Include="Login-Wrong Password.cs" />
+    <Compile Include="QuickPlay.cs" />
     <Compile Include="SignUp.cs" />
     <Compile Include="SignUp-Existent Email.cs" />
     <Compile Include="SignUp-No Email.cs" />
