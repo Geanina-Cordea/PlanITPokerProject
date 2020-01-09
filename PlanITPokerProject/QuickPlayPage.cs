@@ -7,25 +7,22 @@ using System.Threading.Tasks;
 
 namespace PlanITPokerProject
 {
-    public class QuickPlay
+    public class QuickPlayPage
     {
         IWebDriver driver;
         By Username = By.Name("inputName");
         By EnterButton = By.ClassName("btn");
 
-        public QuickPlay(IWebDriver driver)
+        public QuickPlayPage(IWebDriver driver)
         {
             this.driver = driver;
         }
 
-        public void TypeUsername()
+        public void RoomsPage (string userName)
         {
             driver.FindElement(Username).SendKeys("Ana");
-        }       
-        public void ClickOnEnterButton()
-        {
             driver.FindElement(EnterButton).Click();
         }
-
+        
     }
 }
