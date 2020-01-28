@@ -12,17 +12,20 @@ namespace PlanITPokerProject
     [TestClass]
     public class TestQuickPlay
     {
+
+        IWebDriver driver;
         [TestMethod]
         public void QuickPlayPage()
         {
-            IWebDriver driver;
-
+            
             var home = new HomePage(driver);
-            var roomPage = home.QuickPlay();
+            home.StartQuickPlay();
 
+            var quick = new QuickPlayPage(driver);
+            quick.RoomsPage("ana");           
+            
             System.Threading.Thread.Sleep(4000);
             driver.Close();
-
         }
         
     }

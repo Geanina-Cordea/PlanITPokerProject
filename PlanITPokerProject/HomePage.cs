@@ -17,14 +17,16 @@ namespace PlanITPokerProject
             this.driver = driver;
         }
 
-        public void StartQuickPlayPage ()
+        public void StartQuickPlay()
         {
-            IWebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.planitpoker.com/");
             driver.Manage().Window.Maximize();
             driver.FindElement(By.XPath("//a[@class='btn btn-default btn-lg btn-six']")).Click();
             
         }
-
+        
     }
+    
+
 }
