@@ -18,10 +18,14 @@ namespace PlanITPokerProject
             this.driver = driver;
         }
 
-        public void RoomsPage (string inputName)
+        public PlayroomPage RunRoomsPage(string inputName)
         {
-            driver.FindElement(Username).SendKeys("Ana");
+            driver.FindElement(Username).SendKeys(inputName);
             driver.FindElement(EnterButton).Click();
+
+            return new PlayroomPage(driver);
+
         }
+
     }
 }
