@@ -10,7 +10,7 @@ namespace PlanITPokerProject
     public class PlayroomPage
     {
         IWebDriver driver;
-        By Roomname = By.Name("createRoomNameInput");
+        By Roomname = By.Id("createRoomNameInput");
         By CreateButton = By.ClassName("btn");
                
         public PlayroomPage(IWebDriver driver)
@@ -20,7 +20,7 @@ namespace PlanITPokerProject
 
         public void RunPlayroom ()
         {
-
+            System.Threading.Thread.Sleep(4000);
             driver.FindElement(Roomname).SendKeys("Room1");
             driver.FindElement(CreateButton).Click();
 

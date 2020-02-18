@@ -20,6 +20,7 @@ namespace PlanITPokerProject
 
         public PlayroomPage RunRoomsPage(string inputName)
         {
+            System.Threading.Thread.Sleep(4000);
             driver.FindElement(Username).SendKeys(inputName);
             driver.FindElement(EnterButton).Click();
 
