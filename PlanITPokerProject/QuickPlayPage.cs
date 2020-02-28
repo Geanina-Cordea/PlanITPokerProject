@@ -18,13 +18,13 @@ namespace PlanITPokerProject
             this.driver = driver;
         }
 
-        public PlayroomPage RunRoomsPage(string inputName)
+        public BoardPage EnterUsername(string inputName)
         {
-            System.Threading.Thread.Sleep(4000);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.FindElement(Username).SendKeys(inputName);
             driver.FindElement(EnterButton).Click();
 
-            return new PlayroomPage(driver);
+            return new BoardPage(driver);
 
         }
 

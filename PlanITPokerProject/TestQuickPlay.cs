@@ -22,10 +22,11 @@ namespace PlanITPokerProject
 
             var home = new HomePage(driver);
             var quickRoom = home.StartQuickPlay();
-            var playRoom = quickRoom.RunRoomsPage("ana");
-            playRoom.RunPlayroom();
+            var boardRoom = quickRoom.EnterUsername("Ana");
+            var playRoom = boardRoom.EnterRoomname();
+            playRoom.EnterStoryname();
 
-            System.Threading.Thread.Sleep(4000);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Close();
         }
     }

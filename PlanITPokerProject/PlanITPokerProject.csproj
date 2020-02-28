@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Forgetten Password.cs" />
     <Compile Include="HomePage.cs" />
+    <Compile Include="BoardPage.cs" />
     <Compile Include="PlayroomPage.cs" />
     <Compile Include="TestQuickPlay.cs" />
     <Compile Include="LoginPage.cs" />

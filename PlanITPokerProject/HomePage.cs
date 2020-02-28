@@ -20,7 +20,7 @@ namespace PlanITPokerProject
         { 
             driver.Navigate().GoToUrl("https://www.planitpoker.com/");
             driver.Manage().Window.Maximize();
-            driver.FindElement(By.XPath("//a[@class='btn btn-default btn-lg btn-six']")).Click();
+            driver.FindElement(By.CssSelector("[href*='/quickplay']")).Click();
 
             return new QuickPlayPage(driver);
         }
