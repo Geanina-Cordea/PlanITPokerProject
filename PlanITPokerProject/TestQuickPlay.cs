@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,6 @@ namespace PlanITPokerProject
             var playRoom = boardRoom.EnterRoomname();
             playRoom.EnterStoryname();
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Close();
         }
     }

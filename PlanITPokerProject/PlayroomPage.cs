@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,14 @@ namespace PlanITPokerProject
             this.driver = driver;
         }
 
+        [Obsolete]
         public void EnterStoryname()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("inputName")));           
+
             driver.FindElement(Storyname).SendKeys("Story1");
             driver.FindElement(SaveCloseButton).Click();
-
         }
     }
 }

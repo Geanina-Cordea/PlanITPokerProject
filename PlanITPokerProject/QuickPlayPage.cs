@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace PlanITPokerProject
 
         public BoardPage EnterUsername(string inputName)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            
             driver.FindElement(Username).SendKeys(inputName);
             driver.FindElement(EnterButton).Click();
 
