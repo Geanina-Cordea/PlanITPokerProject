@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using Xunit;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,20 @@ namespace PlanITPokerProject
     public class HomePage
     {
         IWebDriver driver;
-
         public HomePage(IWebDriver driver)
         {
-            this.driver = driver;
-            driver.Navigate().GoToUrl("https://www.planitpoker.com/");
-            driver.Manage().Window.Maximize();
+            this.driver = driver;          
         }
 
         public QuickPlayPage StartQuickPlay()
         {            
-            driver.FindElement(By.CssSelector("[href*='/quickplay']")).Click();
+            IWebElement ClickOnQuickPlay = driver.FindElement(By.CssSelector("[href*='/quickplay']"));
+            ClickOnQuickPlay.Click();
+
+            Assert.Contains("Enter your name", driver.PageSource);
 
             return new QuickPlayPage(driver);
-        }        
+        }             
+               
     }
-    
-
 }
