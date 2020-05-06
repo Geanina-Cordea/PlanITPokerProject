@@ -60,6 +60,13 @@ namespace PlanITPokerProject
 
             return new RestorePasswordPage(driver);
         }
+        public void StartLoginWithGmail()
+        {
+            IWebElement ClickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
+            ClickOnLogin.Click();
 
+            IWebElement ClickGmailButton = driver.FindElement(By.Name("provider"));
+            ClickGmailButton.Click();                     
+        }
     }
 }

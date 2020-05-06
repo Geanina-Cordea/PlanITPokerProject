@@ -70,6 +70,16 @@ namespace PlanITPokerProject
 
             driver.Close();
         }
+
+        [Fact]
+        public void LoginWithGmail()
+        {
+            var home = new HomePage(driver);
+            home.StartLoginWithGmail();
+
+            driver.Close();
+        }
+        
     }
 }
 
