@@ -11,7 +11,6 @@ namespace PlanITPokerProject
 {
     public class QuickPlayPage
     {
-
         IWebDriver driver;
         
         public QuickPlayPage(IWebDriver driver)
@@ -27,8 +26,7 @@ namespace PlanITPokerProject
             driver.FindElement(Username).SendKeys(inputName);
             driver.FindElement(EnterButton).Click();
             
-            return new BoardPage(driver);
-           
+            return new BoardPage(driver);           
         } 
     }       
 }
