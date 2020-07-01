@@ -17,56 +17,57 @@ namespace PlanITPokerProject
             this.driver = driver;          
         }
 
-        public QuickPlayPage StartQuickPlay()
+        public EnterCredentialsPage StartQuickPlay()
         {            
-            IWebElement ClickOnQuickPlay = driver.FindElement(By.CssSelector("[href*='/quickplay']"));
-            ClickOnQuickPlay.Click();
+            IWebElement clickOnQuickPlay = driver.FindElement(By.CssSelector("[href*='/quickplay']"));
+            clickOnQuickPlay.Click();
 
             Assert.Contains("Enter your name", driver.PageSource);
 
-            return new QuickPlayPage(driver);
+            return new EnterCredentialsPage(driver);
         }
 
-        public LoginPage StartLogin()
+        public EnterCredentialsPage StartLogin()
         {
-            IWebElement ClickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
-            ClickOnLogin.Click();
+            IWebElement clickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
+            clickOnLogin.Click();
 
 
             Assert.Contains("Enter your email", driver.PageSource);
 
-            return new LoginPage(driver);
+            return new EnterCredentialsPage(driver);
         }
          
-        public SignupPage StartSignUp()
+        public EnterCredentialsPage StartSignUp()
         {
-            IWebElement ClickOnLogin = driver.FindElement(By.CssSelector("[href*='/signup']"));
-            ClickOnLogin.Click();
+            IWebElement clickOnSignup = driver.FindElement(By.CssSelector("[href*='/signup']"));
+            clickOnSignup.Click();
 
             Assert.Contains("Enter your name", driver.PageSource);
 
-            return new SignupPage(driver);
+            return new EnterCredentialsPage(driver);
         }
 
-        public RestorePasswordPage StartRestorePassword ()
+        public EnterCredentialsPage StartRestorePassword ()
         {
-            IWebElement ClickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
-            ClickOnLogin.Click();
-
-            IWebElement ClickForgottenPassword = driver.FindElement(By.CssSelector("[href*='/authentication/restorepassword']"));
-            ClickForgottenPassword.Click(); 
+            IWebElement clickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
+            clickOnLogin.Click();
+            IWebElement clickForgottenPassword = driver.FindElement(By.CssSelector("[href*='/authentication/restorepassword']"));
+            clickForgottenPassword.Click(); 
 
             Assert.Contains("Enter your email", driver.PageSource);
 
-            return new RestorePasswordPage(driver);
+            return new EnterCredentialsPage(driver);
+
         }
         public void StartLoginWithGmail()
         {
-            IWebElement ClickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
-            ClickOnLogin.Click();
+            IWebElement clickOnLogin = driver.FindElement(By.CssSelector("[href*='/authentication']"));
+            clickOnLogin.Click();
+            IWebElement clickGmailButton = driver.FindElement(By.Name("provider"));
+            clickGmailButton.Click();
 
-            IWebElement ClickGmailButton = driver.FindElement(By.Name("provider"));
-            ClickGmailButton.Click();                     
+            Assert.Contains("Conectați-vă – Conturi Google", driver.PageSource);
         }
     }
 }

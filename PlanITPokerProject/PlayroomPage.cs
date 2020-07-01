@@ -19,19 +19,33 @@ namespace PlanITPokerProject
             this.driver = driver;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
         }
-
-        By Storyname = By.Name("inputName");
-        By SaveCloseButton = By.XPath("//button[contains(text(),'Save & Close')]");
-       
-
+        
         [Obsolete]
-        public void EnterStoryname()
+        public VotePage EnterStoryname()
         {
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-            wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("inputName")));           
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("inputName")));
 
-            driver.FindElement(Storyname).SendKeys("Story1");
-            driver.FindElement(SaveCloseButton).Click();
+            IWebElement enterStoryName = driver.FindElement(By.Name("inputName"));
+            enterStoryName.SendKeys("Story1");
+            IWebElement clickOnSaveAndClose = driver.FindElement(By.XPath("//button[contains(text(),'Save & Close')]"));
+            clickOnSaveAndClose.Click();
+           
+            return new VotePage(driver);
+        }
+
+        [Obsolete]
+        public InvitePage EnterNewStoryname()
+        {
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("inputName")));
+
+            IWebElement enterStoryName = driver.FindElement(By.Name("inputName"));
+            enterStoryName.SendKeys("Story1");
+            IWebElement clickOnSaveAndClose = driver.FindElement(By.XPath("//button[contains(text(),'Save & Close')]"));
+            clickOnSaveAndClose.Click();
+
+            return new InvitePage (driver);
         }
     }
 }

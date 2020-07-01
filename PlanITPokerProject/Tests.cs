@@ -30,21 +30,60 @@ namespace PlanITPokerProject
         {
             var home = new HomePage(driver);
             var quickRoom = home.StartQuickPlay();
-            var boardRoom = quickRoom.EnterUsername("Ana");
-            var playRoom = boardRoom.CreateAndSetUpNewRoom();
+            var boardRoom = quickRoom.EnterUsername();
+            var playRoom = boardRoom.CreateRoomOnScrumMode();
             playRoom.EnterStoryname();
 
             driver.Close();
         }
 
         [Fact]
-        public void LoginAndPlay()
+        public void EditRoomAndStory()
+        {
+            var home = new HomePage(driver);
+            var quickRoom = home.StartQuickPlay();
+            var boardRoom = quickRoom.EnterUsername();
+            var playRoom = boardRoom.CreateRoomOnScrumMode();
+            var vote = playRoom.EnterStoryname();
+            var editRoom = vote.OneVoting();
+            editRoom.RenameCurrentRoomAndStory();
+
+            driver.Close();
+        }
+
+        [Fact]
+        public void LoginOnScrumModeAndCountdown()
         {
             var home = new HomePage(driver);
             var login = home.StartLogin();
             var boardRoom = login.EnterEmailAndPassword();
-            var playRoom = boardRoom.CreateAndSetUpNewRoomWithDiffrentModes();
+            var playRoom = boardRoom.CreateRoomOnSequentialModeAndCountdown();
             playRoom.EnterStoryname();
+
+            driver.Close();
+        }
+
+        [Fact]
+        public void LoginOnTshirtMode()
+        {
+            var home = new HomePage(driver);
+            var login = home.StartLogin();
+            var boardRoom = login.EnterEmailAndPassword();
+            var playRoom = boardRoom.CreateRoomWithTshirtMode();
+            playRoom.EnterStoryname();
+
+            driver.Close();
+        }
+
+        [Fact]
+        public void LoginOnAndPlayWithOnePLayer()
+        {
+            var home = new HomePage(driver);
+            var login = home.StartLogin();
+            var boardRoom = login.EnterEmailAndPassword();
+            var playRoom = boardRoom.CreateRoomOnSequentialModeAndCountdown();
+            var vote = playRoom.EnterStoryname();
+            vote.OneVoting();
 
             driver.Close();
         }
@@ -55,7 +94,7 @@ namespace PlanITPokerProject
             var home = new HomePage(driver);
             var signup = home.StartSignUp();
             var boardRoom = signup.EnterNameEmailAndPassword();
-            var playRoom = boardRoom.CreateAndSetUpNewRoom();
+            var playRoom = boardRoom.CreateRoomOnScrumMode();
             playRoom.EnterStoryname();
 
             driver.Close();
@@ -79,7 +118,52 @@ namespace PlanITPokerProject
 
             driver.Close();
         }
+
+        [Fact]
+        public void SignOut()
+        {
+            var home = new HomePage(driver);
+            var quickRoom = home.StartQuickPlay();
+            var boardRoom = quickRoom.EnterUsername();
+            var playRoom = boardRoom.CreateRoomOnScrumMode();
+            var vote = playRoom.EnterStoryname();
+            var editRoom = vote.OneVoting();
+            var signOut =  editRoom.RenameCurrentRoomAndStory();
+            signOut.ClickOnSignOut();
+
+            driver.Close();        
+        }
+
+        [Fact]
+        public void StartQuickPlayAndDoubleVoting()
+        {
+            var home = new HomePage(driver);
+            var quickRoom = home.StartQuickPlay();
+            var boardRoom = quickRoom.EnterUsername();
+            var playRoom = boardRoom.CreateRoomOnScrumMode();
+            var vote = playRoom.EnterStoryname();
+            vote.DoubleVoting();
+
+            driver.Close();
+        } 
         
+        [Fact]
+        public void SendInvitation ()
+        {
+            var home = new HomePage(driver);
+            var quickRoom = home.StartQuickPlay();
+            var boardRoom = quickRoom.EnterUsername();
+            var playRoom = boardRoom.CreateRoomOnScrumMode();
+            var invitePlayer = playRoom.EnterNewStoryname();
+            invitePlayer.SendInvitation();
+
+            driver.Close();
+        }
+
+
     }
+
+
+
 }
 
