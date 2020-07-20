@@ -44,7 +44,7 @@ namespace PlanITPokerProject
             IWebElement clickOnSignupButton = driver.FindElement(By.ClassName("btn"));
             clickOnSignupButton.Click();
 
-            //Assert.Contains("board", driver.PageSource);
+            Assert.Contains("board", driver.PageSource);
 
             return new BoardPage(driver);
         }
